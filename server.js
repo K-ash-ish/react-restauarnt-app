@@ -7,8 +7,11 @@ const app = express();
 app.use(cors());
 
 app.get("/api/restaurants", (req, res) => {
-  const url =
-    "https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.1768293&lng=79.97640129999999&page_type=DESKTOP_WEB_LISTING";
+  const { latitude, longitude } = req.query;
+  // 23.1768293 79.97640129999999
+  // https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.1768293&lng=79.97640129999999&page_type=DESKTOP_WEB_LISTING
+  const url = `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}&page_type=DESKTOP_WEB_LISTING`;
+
   fetch(url, {
     headers: {
       "Content-Type": "application/json",
@@ -32,11 +35,9 @@ app.get("/api/restaurants", (req, res) => {
     });
 });
 app.get("/api/restaurant/menu", (req, res) => {
-  const { id } = req.query;
-  console.log(id);
-  const url =
-    "https://www.swiggy.com/dapi/menu/v4/full?lat=23.1768293&lng=79.97640129999999&menuId=" +
-    id;
+  const { id, latitude, longitude } = req.query;
+  const url = `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=${latitude}&lng=${longitude}&restaurantId=${id}&submitAction=ENTER`;
+
   fetch(url, {
     headers: {
       "Content-Type": "application/json",
