@@ -37,7 +37,7 @@ app.get("/api/restaurants", (req, res) => {
 });
 app.get("/api/restaurant/menu", (req, res) => {
   const { id, latitude, longitude } = req.query;
-  const url = `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=${latitude}&lng=${longitude}&restaurantId=${id}&submitAction=ENTER`;
+  const url = `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&&lat=${latitude}&lng=${longitude}&restaurantId=${id}&submitAction=ENTER`;
 
   fetch(url, {
     headers: {
