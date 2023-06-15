@@ -10,10 +10,10 @@ app.get("/api/restaurants", (req, res) => {
   const { latitude, longitude, offset } = req.query;
   // 23.1768293 79.97640129999999
   //asdf
-  // https://www.swiggy.com/dapi/restaurants/list/v5?lat=23.1768293&lng=79.97640129999999&page_type=DESKTOP_WEB_LISTING
-  const url = `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}&offset=${offset}&sortBy=RELEVANCE&page_type=DESKTOP_WEB_LISTING`;
+  const url = `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}&offset=${offset}&sortBy=RELEVANCE&pageType=SEE_ALL&page_type=DESKTOP_SEE_ALL_LISTING`;
+  // const url = `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}&offset=${offset}&sortBy=RELEVANCE&pageType=SEE_ALL&page_type=DESKTOP_SEE_ALL_LISTING`;
 
-  fetch(url, {
+  https: fetch(url, {
     headers: {
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*",
