@@ -7,13 +7,13 @@ const app = express();
 app.use(cors());
 
 app.get("/api/restaurants", (req, res) => {
-  const { latitude, longitude, offset } = req.query;
+  const { latitude, longitude } = req.query;
   // 23.1768293 79.97640129999999
   //asdf
-  const url = `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}&offset=${offset}&sortBy=RELEVANCE&pageType=SEE_ALL&page_type=DESKTOP_SEE_ALL_LISTING`;
+  const url = `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}&page_type=DESKTOP_WEB_LISTING`;
   // const url = `https://www.swiggy.com/dapi/restaurants/list/v5?lat=${latitude}&lng=${longitude}&offset=${offset}&sortBy=RELEVANCE&pageType=SEE_ALL&page_type=DESKTOP_SEE_ALL_LISTING`;
 
-  https: fetch(url, {
+  fetch(url, {
     headers: {
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "*",
