@@ -25,7 +25,6 @@ app.get("/api/restaurants", (req, res) => {
     headers: {
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "https://eat-treat.netlify.app",
-      Vary: "Origin",
       "User-Agent":
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36",
     },
@@ -53,7 +52,6 @@ app.get("/api/restaurant/menu", (req, res) => {
     headers: {
       "Content-Type": "application/json",
       "Access-Control-Allow-Origin": "https://eat-treat.netlify.app",
-      Vary: "Origin",
       "User-Agent":
         "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36",
     },
